@@ -1,57 +1,51 @@
-# Public Opinion EDA — Institutional Trust
+# Audience Segmentation Analysis
 
-Exploratory data analysis of public opinion survey data on institutional trust.
+Psychometric segmentation of consumer behavior data using clustering techniques.
 
-This project demonstrates how to work with national survey data to produce structured, interpretable insights about how different population groups perceive and trust public and private institutions. The analysis goes beyond simple descriptive statistics and builds a reading of the social and political landscape through data.
+This project demonstrates how to classify a population into meaningful audience groups based on values, attitudes, and behavioral patterns — going beyond simple demographic cuts. The approach produces actionable consumer profiles that can inform communication strategy, product positioning, and campaign personalization.
 
 ---
 
-## The question
+## The problem
 
-How much do people trust the institutions that shape their lives?
+Standard demographic segmentation (age, gender, income) tells you who your audience is, but not how they think or make decisions. Two consumers with identical demographics can have completely different values, motivations, and purchase behaviors.
 
-Trust in institutions — government, judiciary, media, armed forces, religious organizations — is one of the most studied dimensions in public opinion research. It shapes political participation, social cohesion, and the legitimacy of democratic systems.
-
-This project shows how to explore that question systematically using survey data: measuring levels, mapping variation across demographic groups, identifying patterns, and communicating findings clearly.
+Psychometric segmentation groups people by shared worldviews and behavioral patterns. The result is a typology that is more stable, more predictive, and more useful for strategic decisions than demographic cuts alone.
 
 ---
 
 ## What this project does
 
-- Loads and inspects a national public opinion dataset on institutional trust
-- Produces univariate and bivariate summaries of trust scores (1–5 scale)
-- Builds an **Institutional Trust Index (ITI)** as a composite measure
-- Analyzes variation by region, age group, education, and gender
-- Identifies which institutions show the greatest polarization across subgroups
-- Produces publication-ready visualizations: bar charts, heatmaps, box plots, diverging charts
+- Loads and explores a consumer opinion dataset with attitudinal and behavioral variables
+- Scales psychometric variables for clustering
+- Determines the optimal number of segments using the **Elbow Method** and **Silhouette Score**
+- Applies **K-Means clustering** to classify respondents into segments
+- Profiles each segment by attitudes, behaviors, and demographics
+- Produces visualizations: radar chart, PCA map, segment size distribution
 
 ---
 
-## Institutions covered
+## Segments identified
 
-| Institution | Variable |
-|---|---|
-| Federal Government | `trust_gov` |
-| Judiciary | `trust_judiciary` |
-| National Congress | `trust_congress` |
-| Armed Forces | `trust_military` |
-| Media / Press | `trust_media` |
-| Religious Organizations | `trust_religion` |
-| NGOs and Civil Society | `trust_ngo` |
-| Science and Research Institutions | `trust_science` |
+| Segment | Label | Profile |
+|---|---|---|
+| 1 | Conscious Consumer | High sustainability engagement, willing to pay premium for ethical brands |
+| 2 | Practical Consumer | Price and convenience driven, low brand loyalty |
+| 3 | Aspirational Consumer | Brand and status oriented, influenced by trends and social proof |
+| 4 | Traditional Consumer | Low digital engagement, conservative purchasing habits, high brand inertia |
 
 ---
 
 ## Project structure
 
 ```
-public-opinion-eda/
+audience-segmentation/
 │
 ├── notebooks/
-│   └── eda_walkthrough.ipynb    # Full EDA walkthrough
+│   └── segmentation_walkthrough.ipynb   # Full analysis walkthrough
 │
 ├── scripts/
-│   └── eda_pipeline.py          # Reusable EDA pipeline
+│   └── segmentation.py                  # Reusable segmentation pipeline
 │
 └── README.md
 ```
@@ -60,32 +54,35 @@ public-opinion-eda/
 
 ## How to adapt to a new project
 
-The analysis is driven by a configurable list of trust variables:
+The script is built around a configurable list of psychometric variables and a target number of segments:
 
 ```python
-TRUST_VARS = [
-    'trust_gov',
-    'trust_judiciary',
-    # add or remove institutions as needed
+PSYCHOMETRIC_VARS = [
+    'your_attitude_variable_1',
+    'your_attitude_variable_2',
+    # ...
 ]
+
+K = 4  # number of segments
 ```
 
-Swap in your own variable names and the pipeline runs end to end. The ITI is recalculated automatically as the mean of whatever variables are listed.
+Replace the variable list with your own attitudinal or behavioral columns and the pipeline runs end to end without further changes.
 
 ---
 
 ## Stack
 
 - `Python 3.x`
-- `Pandas` — data preparation and group-level summaries
-- `Matplotlib` — all visualizations
-- `NumPy` — index calculation and numerical operations
+- `Pandas` — data preparation and segment profiling
+- `Scikit-learn` — K-Means clustering, StandardScaler, PCA, silhouette score
+- `Matplotlib` — radar chart, PCA map, segment distribution
+- `NumPy` — numerical operations
 
 ---
 
 ## Context
 
-The methodology demonstrated here reflects the type of analysis conducted in national public opinion studies carried out across Brazil and Latin America, including multi-country longitudinal panels with probabilistic samples. All data in this repository is synthetic and generated exclusively for demonstration purposes.
+The methodology demonstrated here was applied in a national audience segmentation study (N = 4,256 probabilistic interviews) that produced a typology used to personalize communication campaigns across different population groups in Brazil. All data in this repository is synthetic and generated exclusively for demonstration purposes.
 
 ---
 
