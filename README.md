@@ -2,7 +2,7 @@
 
 Psychometric segmentation of consumer behavior data using clustering techniques.
 
-This project demonstrates how to classify a population into meaningful audience groups based on values, attitudes, and behavioral patterns — going beyond simple demographic cuts. The approach produces actionable consumer profiles that can inform communication strategy, product positioning, and campaign personalization.
+This project demonstrates how to classify a population into meaningful audience groups based on values, attitudes, and behavioral patterns, going beyond simple demographic cuts. The approach produces actionable consumer profiles that can inform communication strategy, product positioning, and campaign personalization.
 
 ---
 
