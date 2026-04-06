@@ -89,5 +89,5 @@ The methodology demonstrated here was applied in a national audience segmentatio
 ## Author
 
 **Teresa De Bastiani**
-Senior Market Research Analyst · Florianópolis, Brazil
+Senior Market Research Analyst ·
 [LinkedIn](https://linkedin.com/in/mteresadebastiani)
